@@ -1,0 +1,89 @@
+
+
+.pag{
+    display:flex;
+    text-align: center;
+    justify-content: center;
+    gap: 20px;
+    list-style: none
+}
+
+.pag .pag_item {
+    display:flex;
+    text-align: center;
+    justify-content: center;
+    background-color: #2E1E43;
+    padding: 10px;
+    height: 20px;
+    width:20px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.pag .active{
+    background-color: #1e122e;
+}
+
+.pag .dots{
+    display:flex;
+    text-align: center;
+    justify-content: center;
+    background-color: #2E1E43;
+    padding: 10px;
+    height: 20px;
+    width:20px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.pag .prev{
+    display:flex;
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+    height: 20px;
+    width:20px;
+    background-color: #2E1E43;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border: none;
+
+}
+
+.pag .next{
+    display:flex;
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+    height: 20px;
+    width:20px;
+    background-color: #2E1E43;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border: none;
+}
+
+.pag .is_disabled{
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border: none;
+    pointer-events: none;
+    opacity:0.5;
+    cursor: not-allowed;
+}
+

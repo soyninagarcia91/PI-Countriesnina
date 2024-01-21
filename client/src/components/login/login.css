@@ -1,0 +1,72 @@
+
+.log{
+    display:flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.allLog{
+    margin:60px;
+    padding: 60px;
+    display:flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    backdrop-filter: blur(7px);
+    border: 1px solid;
+    border-color: #ffffff;    
+    color:#ffffff
+}
+
+.email{
+    padding:10px;
+}
+
+.email input{
+    padding:10px;
+    margin: 20px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    border: 1px solid;
+    border-color: #ffffff;
+    background: inherit;
+    background-color:transparent;
+}
+
+.pass{
+    padding:10px;
+}
+
+.pass input{
+    padding:10px;
+    margin: 20px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    border: 1px solid;
+    border-color: #ffffff;
+    background: inherit;
+    background-color:transparent;
+}
+
+.log button{
+    padding:10px;
+    margin: 20px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    border: 1px solid;
+    border-color: #ffffff;
+}
