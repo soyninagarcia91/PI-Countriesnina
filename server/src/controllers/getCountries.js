@@ -1,16 +1,28 @@
-const Country = require ('../models/Country')
-const Activity = require('../models/Activity')
+const {Country} = require ('../db')
+const {Activity} = require('../db')
 
 //! FALTA ACTIVIDADES TURISTICAS
 
-const getCountries = async(req, res) => {
+const getCountries = async() => {
     try {
-        const countries = await Country.findAll({
-            include: Activity
-        })
-        res.status(200).json(countries)
+        const api = await fetch('http://localhost:5000/countries')
+        const data = await api.json()
+        const map = data.map((m) => ({
+            cca3: m.cca3,
+            nameCommon: m.name.common,
+            nameOfficial: m.name.official,
+            flag: m.flags.png,
+            capital: m.capital,
+            continent: m.region,
+            subregion: m.subregion,
+            area: m.area,
+            population: m.population
+        }))
+        await Country.bulkCreate(
+            map
+        )
     } catch (error) {
-        res.status(400).json({error: error.message})
+        console.error(error.message)
     }
     
 }
