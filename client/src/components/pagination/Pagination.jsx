@@ -1,80 +1,79 @@
-import { useEffect, useState } from 'react'
-import ReactPaginate from 'react-paginate'
-import Cards from '../cards/Cards'
-import { Link } from 'react-router-dom'
-import './Pagination.css'
+import "./pag.css";
 
+export default function Pagination({
+  countriesPerPage,
+  totalCountries,
+  currentPage,
+  setCurrentPage,
+}) {
+  const pageNumbers = [];
 
-export const Pagination = () => {
+  for (let i = 1; i <= Math.ceil(totalCountries / countriesPerPage); i++) {
+    pageNumbers.push(i);
+  }
 
-    const [countries, setCountries] = useState([])
-    const [pageCount, setPageCount] = useState(0)
-
-    const pages = async () => {
-        const api = await fetch('http://localhost:5000/countries')
-        const data = await api.json()
-        const total = data.length
-        setPageCount(Math.ceil(total/10))
+  /*   const onPrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
     }
+  };
 
-    useEffect(() => {
-        const getCountries = () => {
-            fetch('http://localhost:5000/countries?_limit=10')
-            .then(res => res.json())
-            .then(data => setCountries(data))
+  const onNextPage = () => {
+    const allPaginate = totalCountries / countriesPerPage;
+    if (currentPage) {
+      setCurrentPage(currentPage + 1);
+    }
+  }; */
+
+  /*   const onPage = (e) => {
+    addEventListener("click", () => setCurrentPage(e.target.value));
+    setCurrentPage(e.target.value);
+    console.log("n: ", e.target.value);
+    console.log("curr: ", currentPage);
+  }; */
+  const onPrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const onNextPage = () => {
+    if (currentPage < pageNumbers.length) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const onPage = (e) => {
+    setCurrentPage(Number(e.target.value));
+    console.log("n: ", e.target.value);
+    console.log("curr: ", currentPage);
+  };
+  return (
+    <article className="pagination" key={currentPage}>
+      <button
+        className={currentPage === 1 ? "is_disabled" : "prevNext"}
+        onClick={onPrevPage}
+      >
+        Prev
+      </button>
+      {pageNumbers.map((numPag) => (
+        <button
+          value={numPag}
+          key={numPag}
+          className={numPag === currentPage ? "is_current" : "num"}
+          onClick={onPage} // Pasa el número de página como argumento
+        >
+          {numPag}
+        </button>
+      ))}
+      <button
+        className={
+          currentPage >= pageNumbers.length ? "is_disabled" : "prevNext"
         }
-        pages()
-        getCountries()
-
-    }, [])
-
-    console.log(countries)
-
-    const fetchCountries = async (currentPage) => {
-        const res = await fetch(`http://localhost:5000/countries?_page=${currentPage}_limit=10`)
-        const data = await res.json()
-        return data
-    }
-
-    const handlePageClick = async (data) => {
-        let currentPage = data.selected + 1
-        
-        const countriesFromApi = await fetchCountries(currentPage)
-        setCountries(countriesFromApi)
-    }
-
-    return(
-        <div className="paginate">
-
-            {countries.map(i => {
-                    <div>
-                        <img src={i.flags.png}/>
-                        <h2>{i.name.official}</h2>
-                        <h3>{i.continents}</h3>
-                        <Link to= '/detail/:id'>
-                            <h4>See detail</h4>
-                        </Link>
-                </div>
-            })}
-
-            <ReactPaginate
-            previousLabel ={'<<'}
-            nextLabel={'>>'}
-            breakLabel={'...'}
-            breakClassName='dots'
-            pageCount={pageCount}
-            marginPagesDisplayed={3}
-            pageRangeDisplayed={3}
-            onPageChange={handlePageClick}
-            containerClassName='pag'
-            pageClassName='pag_item'
-            pageLinkClassName='pag_link'
-            previousClassName=  'prev' 
-            nextClassName= 'next'
-            activeClassName='active'
-            />
-        </div>
-        
-    )
+        onClick={onNextPage}
+      >
+        Next
+      </button>
+    </article>
+  );
 }
-

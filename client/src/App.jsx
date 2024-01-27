@@ -7,8 +7,7 @@ import Home from './components/home/Home'
 import Detail from './components/detail/Detail'
 import Nav from './components/navBar/Nav'
 import About from './components/about/About'
-import Wishlist from './components/wishlist/Wishlist'
-import ActivityCreator from './components/activityCreator/activityCreator'
+import ActivityCreator from './components/activityCreator/ActivityCreator'
 //?----------------------------------------- style
 import './App.css'
 
@@ -32,9 +31,8 @@ function App() {
       <Routes>
       <Route path = '/' element={<Login login={login}></Login>}></Route>
         <Route path= '/home' element={<Home></Home>}></Route>
-        <Route path='/:cca3' element={<Detail></Detail>}></Route>
+        <Route path='/detail/:id' element={<Detail></Detail>}></Route>
         <Route path= '/about' element= {<About></About>}></Route>
-        <Route path= '/wishlist' element={<Wishlist></Wishlist>}></Route>
         <Route path='/create' element={<ActivityCreator></ActivityCreator>}></Route>
       </Routes>
 

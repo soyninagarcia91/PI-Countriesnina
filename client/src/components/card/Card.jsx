@@ -1,21 +1,28 @@
-import {Link} from 'react-router-dom'
-import './card.css'
+import { Link } from "react-router-dom";
+import "./card.css";
 
-const Card = ({ flags, name, continents }) => {
+const Card = (countries) => {
+  return (
+    <div className="card">
+      <div className="top">
+        <img src={countries.flag} />
+      </div>
 
-    return(
-        <div className='card'>
-
-            <img src={flags.png}/>
-            <div className="text">
-                <h2>{name.official}</h2>
-                <h3>{continents}</h3>
-                <Link to= '/:cca3'>
-                    <h4>See detail</h4>
-                </Link>
-            </div>
-        </div>
-    )
-}
+      <div className="text">
+        <h2>{countries.nameCommon}</h2>
+        <p>
+          <span>Continent: {countries.continent} </span>
+        </p>
+        <p>
+          <span>population: </span>
+          {countries.population}
+        </p>
+        <Link to={`/detail/${countries.id}`}>
+          <button>Learn more</button>
+        </Link>
+      </div>
+    </div>
+  );
+};
 
 export default Card;

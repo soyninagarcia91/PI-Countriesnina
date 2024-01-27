@@ -1,16 +1,20 @@
+import { useEffect, useState } from "react"
 import Card from "../card/Card"
 import './cards.css'
 
 const Cards = ({ countries }) => {
+
     return(
         <div className="cards">
-            {countries.map(({ cca3, name, continents, flags, capital, area, population}) => (
+            
+            {countries.map(({ cca3, nameOfficial, nameCommon, region, flag, capital, area, population}, key) => (
                 <Card 
-                    key={cca3}
+                    key={key}
                     id={cca3}
-                    name={name.official}
-                    continent={continents}
-                    flags={flags.png}
+                    nameCommon={nameCommon}
+                    nameOfficial={nameOfficial}
+                    continent={region}
+                    flag={flag}
                     capital={capital}
                     area={area}
                     population={population}

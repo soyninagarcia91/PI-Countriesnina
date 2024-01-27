@@ -1,14 +1,9 @@
 .allNav{
     display:flex;
-    padding: 20px;
+    padding: 25px;
     text-align: center;
     justify-content: space-between;
-    background-color:#2E1E43; 
-    border-radius: 25px;
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;
-    -ms-border-radius: 25px;
-    -o-border-radius: 25px;
+    background-color:#2A3142; 
 }
 
 a{
@@ -23,7 +18,7 @@ a{
 }
 
 a:hover{
-    color:#4C3F77;
+    color:#02FE57;
 }
 
 .left{
@@ -66,7 +61,7 @@ a:hover{
 }
 
 .right button:hover{
-    background-color:#4C3F77;
+    background-color:#02FE57;
 }
 
 

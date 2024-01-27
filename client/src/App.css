@@ -1,9 +1,39 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box ;
+}
+
 html{
-    background-image: url('https://wallpapercave.com/wp/wp12270656.jpg');
+    /* /* background-image: url('https://wallpapercave.com/wp/wp12270656.jpg');
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: fixed; */
+    /* background-color: #05011A;  */
+    background-color: #252735
 }
 
 section{
     min-height: 100vh;
+}
+
+body{
+    font-family: 'DM Sans', sans-serif;
+}
+
+input{
+    border: 1px solid transparent;
+    background-color: #2A3142;
+}
+
+input:focus{
+    outline: 2px solid transparent;
+}
+
+::placeholder{
+    color:#fff;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
 }
