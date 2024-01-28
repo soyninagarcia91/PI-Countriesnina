@@ -1,4 +1,5 @@
 const { Router } = require("express");
+// const getCountries = require("../controllers/getCountries");
 const getTableCountries = require("../controllers/getTableCountries");
 const getCountryById = require("../controllers/getCountryById");
 const getCountryByName = require("../controllers/getCountryByName");
@@ -8,6 +9,7 @@ const getActivities = require("../controllers/getActivities");
 const router = Router();
 
 router.get("/countries", getTableCountries);
+// router.get("/countries", getCountries);
 router.get("/countries/id/:cca3", getCountryById);
 router.get("/countries/name", getCountryByName);
 router.post("/activities", postActivities);
