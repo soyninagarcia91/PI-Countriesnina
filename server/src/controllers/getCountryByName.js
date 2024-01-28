@@ -1,23 +1,25 @@
-const {Op} = require('sequelize')
-const {Country} = require('../db')
+const { Op } = require("sequelize");
+const { Country } = require("../db");
 
 const getCountryByName = async (req, res) => {
-    const {nameCommon} = req.query
-    try {
-        //Op para que no sea sensible a mayusculas y minusculas
-       const find = await Country.findAll({
-        where: {
-            nameCommon: { [Op.iLike]: `%${nameCommon}%` }
-        }
-    })
+  const { nameCommon } = req.query;
+  try {
+    const countries = await Country.findAll();
 
-       if(find.length > 0) {
-        res.status(200).json(find)
-       } 
+    const filteredCountries = countries.filter((country) =>
+      country.nameCommon.toLowerCase().startsWith(nameCommon.toLowerCase())
+    );
 
-    } catch (error) {
-        res.status(500).json({error: error.message})
+    if (filteredCountries.length > 0) {
+      res.status(200).json(filteredCountries);
+    } else {
+      res
+        .status(404)
+        .json({ message: "No countries found with the specified name." });
     }
-}
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 
-module.exports = getCountryByName
+module.exports = getCountryByName;

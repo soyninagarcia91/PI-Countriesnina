@@ -39,11 +39,13 @@ const { Activity, Country } = sequelize.models;
 // Aca vendrian las relaciones
 Country.belongsToMany(Activity, {
   through: "country_activity",
-  foreignKey: "id",
+  foreignKey: "countryId",
+  timestamps: false,
 });
 Activity.belongsToMany(Country, {
   through: "country_activity",
-  foreignKey: "cca3",
+  foreignKey: "activityId",
+  timestamps: false,
 });
 
 // Product.hasMany(Reviews);
