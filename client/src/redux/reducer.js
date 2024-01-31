@@ -4,14 +4,17 @@ import {
   ORDERPOP,
   ORDERALPH,
   FILTERCONT,
+  POST_ACTIVITIES,
+  GET_ACTIVITIES,
   FILTERACT,
   RESET,
-  filterByActivity,
 } from "./actions";
 
 const initialState = {
   countries: [], //at '/home' filt
   allCountries: [], //at '/home' all
+  activities: [], //filt
+  allActivities: [],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -24,12 +27,19 @@ const rootReducer = (state = initialState, { type, payload }) => {
     case GET_COUNTRY_BY_NAME:
       return {
         ...state,
-        allCountries: payload,
+        countries: payload,
       };
     case ORDERPOP:
+      let pop;
+      if (state.countries.length === 0) {
+        pop = [...state.allCountries];
+      } else {
+        pop = [...state.countries];
+      }
+
       return {
         ...state,
-        countries: [...state.allCountries].slice().sort((a, b) => {
+        countries: pop.slice().sort((a, b) => {
           switch (payload) {
             case "Ascendente":
               return a.population - b.population;
@@ -41,8 +51,13 @@ const rootReducer = (state = initialState, { type, payload }) => {
         }),
       };
     case ORDERALPH:
-      let orderedCountries = [...state.allCountries];
-      console.log(payload);
+      let orderedCountries;
+      if (state.countries.length === 0) {
+        orderedCountries = [...state.allCountries];
+      } else {
+        orderedCountries = [...state.countries];
+      }
+
       switch (payload) {
         case "Asc":
           orderedCountries.sort((a, b) =>
@@ -60,10 +75,10 @@ const rootReducer = (state = initialState, { type, payload }) => {
 
       return {
         ...state,
-        allCountries: orderedCountries,
+        countries: orderedCountries,
       };
+
     case FILTERCONT:
-      console.log(payload);
       const filteredContinents =
         payload === "All"
           ? { ...state, countries: state.allCountries }
@@ -73,20 +88,41 @@ const rootReducer = (state = initialState, { type, payload }) => {
                 (c) => c.continent === payload
               ),
             };
+
       return filteredContinents;
-    case FILTERACT:
-      if (payload === "All") return { ...state, countries: state.allCountries };
-      const filteract = state.allCountries.filter(
-        (c) => c.activity === payload
-      );
+
+    case POST_ACTIVITIES:
       return {
         ...state,
-        countries: filteract,
+        allActivities: [...state.allActivities, payload],
       };
+
+    case GET_ACTIVITIES:
+      console.log(payload);
+      return {
+        ...state,
+        allActivities: payload,
+      };
+
+    case FILTERACT:
+      let filteredActivities;
+      filteredActivities =
+        payload === "All"
+          ? { ...state, activities: state.allActivities }
+          : {
+              ...state,
+              activities: state.allActivities.filter(
+                (activity) => activity.name === payload
+              ),
+            };
+      console.log(filteredActivities);
+      return { ...state, ...state.activities };
+
     case RESET:
       return {
         ...state,
-        countries: state.allCountries,
+        countries: [],
+        activities: [],
       };
 
     default:

@@ -1,8 +1,6 @@
 const { Country } = require("../db");
 const { Activity } = require("../db");
 
-//! FALTA ACTIVIDADES TURISTICAS
-
 const getCountries = async () => {
   try {
     const api = await fetch("http://localhost:5000/countries");

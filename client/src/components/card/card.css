@@ -9,6 +9,16 @@
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-10px);
 }
 
 .card .text {
@@ -52,12 +62,13 @@
 } */
 
 .card .text span {
-  color: #02fe57;
+  color: #5ffafc;
 }
 
 .card .text button {
   border: none;
   color: #fff;
+  /* background-color: #2eccce; */
   background-color: #ea1f48;
   padding: 10px;
   width: 50%;

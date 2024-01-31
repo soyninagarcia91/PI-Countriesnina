@@ -3,6 +3,7 @@
   text-align: center;
   justify-content: center;
   gap: 15px;
+  padding: 20px;
 }
 
 .pagination button {
@@ -14,5 +15,23 @@
   -o-border-radius: 10px;
   border: none;
   background-color: #2a3142;
+  color: #fff;
+}
+
+.is_disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: rgba(42, 49, 66, 0.5);
+}
+
+.is_current {
+  padding: 10px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border: none;
+  background-color: #1a1e2a;
   color: #fff;
 }

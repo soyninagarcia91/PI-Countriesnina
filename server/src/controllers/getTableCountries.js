@@ -1,5 +1,4 @@
 const { Country } = require("../db");
-const { Activity } = require("../db");
 
 const getTableCountries = async (req, res) => {
   try {

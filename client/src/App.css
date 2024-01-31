@@ -1,39 +1,57 @@
-*{
-    margin: 0;
-    padding:0;
-    box-sizing: border-box ;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html{
-    /* /* background-image: url('https://wallpapercave.com/wp/wp12270656.jpg');
-    background-size: cover;
-    background-attachment: fixed; */
-    /* background-color: #05011A;  */
-    background-color: #252735
+html {
+  width: 100%;
+  min-height: 100%;
+  text-align: center;
 }
 
-section{
-    min-height: 100vh;
+#root {
+  width: 100%;
+  min-height: 100%;
+  text-align: center;
 }
 
-body{
-    font-family: 'DM Sans', sans-serif;
+section {
+  min-height: 90vh;
 }
 
-input{
-    border: 1px solid transparent;
-    background-color: #2A3142;
+body {
+  min-height: 100%;
+  font-family: "DM Sans", sans-serif;
 }
 
-input:focus{
-    outline: 2px solid transparent;
+input {
+  border: 1px solid transparent;
+  background-color: #2a3142;
 }
 
-::placeholder{
-    color:#fff;
+input:focus {
+  outline: 2px solid transparent;
+}
+
+::placeholder {
+  color: #fff;
 }
 
 .container {
-    width: 90%;
-    margin: 0 auto;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.landing {
+  min-height: 100vh;
+  background-image: url("https://e0.pxfuel.com/wallpapers/586/925/desktop-wallpaper-best-a-baa-d-mapa-mundi-black-world.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  object-fit: cover;
+  background-position: 40% 40%;
+}
+
+.other {
+  background-color: #252735;
 }
