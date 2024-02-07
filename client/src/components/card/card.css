@@ -35,9 +35,9 @@
 }
 
 .card img {
-  min-height: 250px;
-  max-height: 250px;
-  max-width: 100%;
+  min-height: 280px;
+  max-height: 280px;
+  width: 100%;
   object-fit: cover;
   border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;

@@ -86,6 +86,7 @@ const ActivityCreator = () => {
         difficulty: "",
         countries: [],
       });
+      alert("La actividad fue creada exitosamente!");
     }
   };
 
@@ -164,9 +165,9 @@ const ActivityCreator = () => {
                 className="paises"
                 key={key}
                 multiple={true}
-                value={e.nameCommon}
+                value={e[0].nameCommon}
               >
-                {e.nameCommon}
+                {e[0].nameCommon}
               </option>
             ))}
           </select>

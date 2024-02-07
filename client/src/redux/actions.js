@@ -73,11 +73,10 @@ export function postActivity(payload) {
       // Dispatch de la acción si la solicitud fue exitosa
       dispatch({
         type: POST_ACTIVITIES,
-        payload: response.data, // Si el servidor devuelve datos útiles, puedes usarlos aquí
+        payload: response.data,
       });
-      // Puedes hacer algo adicional aquí después de que se complete la solicitud, si es necesario
     } catch (err) {
-      console.log("Tienes un error en: ", err);
+      alert("Se produjo un error en la creación de la actividad");
     }
   };
 }
@@ -101,9 +100,9 @@ export function getActivities() {
 
 //!FALTA ESTE FILTRADO
 
-export const filterByActivity = (activities) => ({
+export const filterByActivity = (activity) => ({
   type: FILTERACT,
-  payload: activities,
+  payload: activity,
 });
 
 export const resetFilters = () => ({

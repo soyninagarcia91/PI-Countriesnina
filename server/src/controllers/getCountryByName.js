@@ -1,4 +1,3 @@
-const { Op } = require("sequelize");
 const { Country } = require("../db");
 
 const getCountryByName = async (req, res) => {
@@ -10,8 +9,14 @@ const getCountryByName = async (req, res) => {
       country.nameCommon.toLowerCase().startsWith(nameCommon.toLowerCase())
     );
 
-    if (filteredCountries.length > 0) {
-      res.status(200).json(filteredCountries);
+    const idWActivity = await Promise.all(
+      filteredCountries.map(async (country) => {
+        const activities = await country.getActivities();
+        return [country, activities];
+      })
+    );
+    if (idWActivity.length > 0) {
+      res.status(200).json(idWActivity);
     } else {
       res
         .status(404)

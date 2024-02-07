@@ -18,13 +18,14 @@
   color: #fff;
 }
 
-.is_disabled {
+.pagination button.is_disabled {
   cursor: not-allowed;
   pointer-events: none;
-  background-color: rgba(42, 49, 66, 0.5);
+  background-color: rgba(42, 49, 66, 0.2);
+  color: rgba(225, 225, 225, 0.2);
 }
 
-.is_current {
+.pagination button.is_current {
   padding: 10px;
   border-radius: 10px;
   -webkit-border-radius: 10px;

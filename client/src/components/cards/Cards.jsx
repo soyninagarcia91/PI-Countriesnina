@@ -5,34 +5,19 @@ import "./cards.css";
 const Cards = ({ countries }) => {
   return (
     <div className="cards">
-      {countries.map(
-        (
-          {
-            cca3,
-            nameOfficial,
-            nameCommon,
-            continent,
-            flag,
-            capital,
-            area,
-            population,
-          },
-          key
-        ) => (
+      {countries.map((c, key) => {
+        let { cca3, nameCommon, continent, flag, population } = c[0];
+        return (
           <Card
             key={key}
             id={cca3}
             nameCommon={nameCommon}
-            nameOfficial={nameOfficial}
             continent={continent}
             flag={flag}
-            capital={capital}
-            area={area}
             population={population}
-            countries={countries}
           />
-        )
-      )}
+        );
+      })}
     </div>
   );
 };

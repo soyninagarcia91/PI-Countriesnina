@@ -48,6 +48,7 @@ export default function Pagination({
     console.log("n: ", e.target.value);
     console.log("curr: ", currentPage);
   };
+
   return (
     <article className="pagination" key={currentPage}>
       <button
