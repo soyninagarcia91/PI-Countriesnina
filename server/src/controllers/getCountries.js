@@ -22,6 +22,7 @@ const getCountries = async () => {
     await Country.bulkCreate(map);
   } catch (error) {
     console.error(error.message);
+    console.error('falla de texto')
   }
 };
 
